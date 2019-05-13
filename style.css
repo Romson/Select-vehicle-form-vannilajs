@@ -1,0 +1,21 @@
+.container {
+    width: 65%;
+    height: 80vh;
+    border-radius: 1.5%;
+    margin-top: 40px;
+    border: solid grey 1px;
+}
+
+.form-row {
+    width: 85% !important;
+    margin: auto;
+    margin-top: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+    .form-row {
+        width: 90% !important;
+        margin: auto;
+        margin-top: 40px;
+    }
+  }

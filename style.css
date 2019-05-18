@@ -18,4 +18,10 @@
         margin: auto;
         margin-top: 40px;
     }
-  }
+}
+
+h4 {
+    text-align: center;
+    color: #ED2662;
+    padding-top: 30px;
+}

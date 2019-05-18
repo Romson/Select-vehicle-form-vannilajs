@@ -86,99 +86,78 @@ const vehicle = [
 ];
 
 
-
-
-
-// Get vehicle type select field Id
+// Get vehicle type id
 const selectVehicle = document.getElementById('selectVehicle');
-const selectVehicleBrand = document.getElementById('selectBrand');
-const selectVehicleColor = document.getElementById('selectColor');
-
-// Get new array of the vehicle types and brands
+// Get new array for vehicle types
 const newArr = vehicle.map((vehicle) => vehicle.type);
-const newBrandArr = vehicle.map((vehicle) => vehicle.brand);
-// Color array
-uniqueColorArr = ["red", "black", "white", "green", "yellow", "blue", "brown", "grey"]
-
-// Filter duplicate vehicle types
+// Filter new array for duplicate vehicle types
 const uniqueArr = newArr.filter((item, index) => {
-    return newArr.indexOf(item) >=index;
-});
-
-// Filter duplicate vehicle brands
-const uniqueBrandArr = newBrandArr.filter((item, index) => {
-  return newBrandArr.indexOf(item) >=index;
+  return newArr.indexOf(item) >=index;
 });
 
 // Options to select for vehicle types
 for (let i = 0; i < uniqueArr.length; i++) {
-    let opt = uniqueArr[i];
-    let el = document.createElement('option');
-    el.textContent = opt;
-    el.value = opt;
-    selectVehicle.appendChild(el);
+  let opt = uniqueArr[i];
+  let el = document.createElement('option');
+  el.textContent = opt;
+  el.value = opt;
+  selectVehicle.appendChild(el);
 };
 
+// EventListener for vehicle types
+selectVehicle.addEventListener('change', (e) => {
+
+  const typeChosen = e.target.value;
+  const vehicleTypeArray = vehicle.filter((vehicle) => vehicle.type === e.target.value); // Filter for vehicle type
+
+  console.log(typeChosen);
+  console.log(vehicleTypeArray) // New array of objects returned
+
+});
+
+
+// Get brand id
+const selectVehicleBrand = document.getElementById('selectBrand');
+// Get new array for vehicle brand
+const newBrandArr = vehicle.map((vehicle) => vehicle.brand);
+
 // Options to select for vehicle brands
-for (let i = 0; i < uniqueBrandArr.length; i++) {
-    let opt = uniqueBrandArr[i];
+for (let i = 0; i < newBrandArr.length; i++) {
+    let opt = newBrandArr[i];
     let el = document.createElement('option');
     el.textContent = opt;
     el.value = opt;
     selectVehicleBrand.appendChild(el);
 };
 
-// Options to select for vehicle color
-for (let i = 0; i < uniqueColorArr.length; i++) {
-    let opt = uniqueColorArr[i];
-    let el = document.createElement('option');
-    el.textContent = opt;
-    el.value = opt;
-    selectVehicleColor.appendChild(el);
-};
-
-
-
-
-// EventListeners for vehicle types, brand and color
-selectVehicle.addEventListener('change', (e) => {
-
-  const typeChosen = e.target.value;
-  const result = vehicle.filter((vehicle) => vehicle.type === e.target.value); // Filter for vehicle type
-
-  console.log(typeChosen);
-  console.log(result) // New array of objects returned
-
-});
-
-// Brand
+// EventListener for vehicle brand
 selectBrand.addEventListener('change', (e) => {
   const brandChosen = e.target.value;
   console.log(brandChosen);
 });
 
-// Color
+
+// Get color id
+const selectVehicleColor = document.getElementById('selectColor');
+// Color array
+uniqueColorArr = ["red", "black", "white", "green", "yellow", "blue", "brown", "grey"];
+
+// Options to select for vehicle color
+for (let i = 0; i < uniqueColorArr.length; i++) {
+  let opt = uniqueColorArr[i];
+  let el = document.createElement('option');
+  el.textContent = opt;
+  el.value = opt;
+  selectVehicleColor.appendChild(el);
+};
+
+// EventListener for vehicle color
 selectColor.addEventListener('change', (e) => {
   const colorChosen = e.target.value;
   console.log(colorChosen);
 });
 
 
-// Filter type, brand and color and findIndex
-const typeIndex = vehicle.findIndex((searchType) => {
-  return searchType.type === 'Lamborghini Huracán';
-})
-
-const brandIndex = vehicle.findIndex((searchType) => {
-  return searchType.brand === 'Lamborghini Huracán';
-})
-
-const colorIndex = vehicle.findIndex((searchType) => {
-  return searchType.color === 'Lamborghini Huracán';
-})
-
-
-// Filter brand and colors based on indexes for type
-
+// Filter brand and colors based on vehicle type selection
 
 // Return array[index].img

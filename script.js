@@ -170,8 +170,4 @@ selectBrand.addEventListener('change', (e) => {
 
 });
 
-
-// Filter brand and colors based on vehicle type selection
-
-
 // Return array[index].img

@@ -86,10 +86,16 @@ const vehicle = [
 ];
 
 
-// Get vehicle type id
+
+// Function to remove options in dropdown
+const removeBrands = (inputField) => {
+  for (let i = 0; i < inputField.length; i++) {
+    inputField.remove(i);
+  }
+}
+
 const selectVehicle = document.getElementById('selectVehicle');
-// Get new array for vehicle types
-const newArr = vehicle.map((vehicle) => vehicle.type);
+const newArr = vehicle.map((vehicle) => vehicle.type); // New array for vehicle types
 // Filter new array for duplicate vehicle types
 const uniqueArr = newArr.filter((item, index) => {
   return newArr.indexOf(item) >=index;
@@ -104,60 +110,68 @@ for (let i = 0; i < uniqueArr.length; i++) {
   selectVehicle.appendChild(el);
 };
 
-// EventListener for vehicle types
+// EVENTLISTENER for vehicle TYPE
+let typeChosen;
+let vehicleTypeArray;
+const selectVehicleBrand = document.getElementById('selectBrand'); 
+
 selectVehicle.addEventListener('change', (e) => {
 
-  const typeChosen = e.target.value;
-  const vehicleTypeArray = vehicle.filter((vehicle) => vehicle.type === e.target.value); // Filter for vehicle type
+  typeChosen = e.target.value;
 
-  console.log(typeChosen);
-  console.log(vehicleTypeArray) // New array of objects returned
+  // New array of objects returned for type chosen
+  vehicleTypeArray = vehicle.filter((vehicle) => vehicle.type === e.target.value);
 
-});
+  // New filtered array for vehicle brands to use in select brand options box
+  const filteredBrands = vehicleTypeArray.map((vehicle) => vehicle.brand);
 
-
-// Get brand id
-const selectVehicleBrand = document.getElementById('selectBrand');
-// Get new array for vehicle brand
-const newBrandArr = vehicle.map((vehicle) => vehicle.brand);
-
-// Options to select for vehicle brands
-for (let i = 0; i < newBrandArr.length; i++) {
-    let opt = newBrandArr[i];
+  for (let i = 0; i < filteredBrands.length; i++) {
+    let opt = filteredBrands[i];
     let el = document.createElement('option');
     el.textContent = opt;
     el.value = opt;
     selectVehicleBrand.appendChild(el);
-};
+  };
 
-// EventListener for vehicle brand
-selectBrand.addEventListener('change', (e) => {
-  const brandChosen = e.target.value;
-  console.log(brandChosen);
+  console.log(typeChosen);
+  console.log(vehicleTypeArray)
+  console.log(filteredBrands);
+
 });
 
 
-// Get color id
+//  EVENTLISTENER for vehicle BRANDS
+let brandChosen; // for input value
+let brandArray; // for new array based on input value
 const selectVehicleColor = document.getElementById('selectColor');
-// Color array
-uniqueColorArr = ["red", "black", "white", "green", "yellow", "blue", "brown", "grey"];
 
-// Options to select for vehicle color
-for (let i = 0; i < uniqueColorArr.length; i++) {
-  let opt = uniqueColorArr[i];
-  let el = document.createElement('option');
-  el.textContent = opt;
-  el.value = opt;
-  selectVehicleColor.appendChild(el);
-};
+selectBrand.addEventListener('change', (e) => {
+  
+  brandChosen = e.target.value;
+  
+  // Get single brand array to filter colors field 
+  brandArray = vehicleTypeArray.filter((vehicle) => vehicle.brand === e.target.value);
 
-// EventListener for vehicle color
-selectColor.addEventListener('change', (e) => {
-  const colorChosen = e.target.value;
-  console.log(colorChosen);
+  // New array for colors
+  const filteredColors = brandArray.map((brand) => brand.colors);
+
+  let newline = '<br>';
+  for (let i = 0; i < filteredColors[0].length; i++) {
+    let opt = filteredColors[0][i];
+    let el = document.createElement('option');
+    el.textContent = opt;
+    el.value = opt;
+    selectVehicleColor.appendChild(el);
+  };
+
+  console.log(brandChosen);
+  console.log(brandArray); // Filtered array based on brand selection to use for colors
+  console.log(filteredColors); // New array of colors based on brand selection
+
 });
 
 
 // Filter brand and colors based on vehicle type selection
+
 
 // Return array[index].img

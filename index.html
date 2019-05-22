@@ -11,31 +11,33 @@
     </head>
     <body>
         
-        <div class="container">
-            <h4>Select Vehicle type, Brand and Color</h1>
-            <form>
-                <div class="form-row">
-                    <!--Vehicle-->              
-                    <div class="col">
-                        <select class="custom-select" id="selectVehicle">
-                            <option selected>Vehicle type</option>
-                        </select>
+        <section id>
+            <div class="container">
+                <h4>Select Vehicle type, Brand and Color</h4>
+                <form>
+                    <div class="form-row">
+                        <!--Vehicle-->              
+                        <div class="col">
+                            <select class="custom-select" id="selectVehicle" name="selectVehicle">
+                                <option selected>Vehicle type</option>
+                            </select>
+                        </div>
+                        <!--Brand-->
+                        <div class="col">
+                            <select class="custom-select" id="selectBrand">
+                                <option selected>Brand</option>
+                            </select>
+                        </div>
+                        <!--Color-->
+                        <div class="col">
+                            <select class="custom-select" id="selectColor">
+                                <option selected>Color</option>
+                            </select>
+                        </div>               
                     </div>
-                    <!--Brand-->
-                    <div class="col">
-                        <select class="custom-select" id="selectBrand">
-                            <option selected>Brand</option>
-                        </select>
-                    </div>
-                    <!--Color-->
-                    <div class="col">
-                        <select class="custom-select" id="selectColor">
-                            <option selected>Color</option>
-                        </select>
-                    </div>               
-                </div>
-            </form>        
-        </div>
+                </form>
+            </div>
+        </section>
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

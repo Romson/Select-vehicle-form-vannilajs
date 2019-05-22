@@ -1,20 +1,27 @@
+body {
+    background-color: #fffce0;
+}
+
 .container {
     width: 65%;
     height: 80vh;
     border-radius: 1.5%;
-    margin-top: 40px;
     border: solid grey 1px;
+    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+    box-shadow: 5px 5px 15px 5px #000000;
+    background-color: white;
+    margin-top: 60px;
 }
 
 .form-row {
-    width: 85% !important;
+    width: 85%;
     margin: auto;
     margin-top: 40px;
 }
 
 @media only screen and (max-width: 600px) {
     .form-row {
-        width: 90% !important;
+        width: 90%;
         margin: auto;
         margin-top: 40px;
     }
@@ -24,4 +31,5 @@ h4 {
     text-align: center;
     color: #ED2662;
     padding-top: 30px;
+    font-weight: 500;
 }

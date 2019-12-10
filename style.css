@@ -1,35 +1,43 @@
 body {
-    background-color: #fffce0;
+  background-color: #fffce0;
 }
 
 .container {
-    width: 65%;
-    height: 80vh;
-    border-radius: 1.5%;
-    border: solid grey 1px;
-    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
-    box-shadow: 5px 5px 15px 5px #000000;
-    background-color: white;
-    margin-top: 60px;
+  width: 65%;
+  height: 80vh;
+  border-radius: 1.5%;
+  border: solid grey 1px;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000;
+  background-color: white;
+  margin-top: 60px;
 }
 
 .form-row {
-    width: 85%;
-    margin: auto;
-    margin-top: 40px;
+  width: 85%;
+  margin: auto;
+  margin-top: 40px;
+}
+
+#showVehicle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 20px auto;
 }
 
 @media only screen and (max-width: 600px) {
-    .form-row {
-        width: 90%;
-        margin: auto;
-        margin-top: 40px;
-    }
+  .form-row {
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+  }
 }
 
 h4 {
-    text-align: center;
-    color: #ED2662;
-    padding-top: 30px;
-    font-weight: 500;
+  text-align: center;
+  color: #ed2662;
+  padding-top: 30px;
+  font-weight: 500;
 }

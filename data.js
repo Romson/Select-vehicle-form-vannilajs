@@ -21,7 +21,7 @@ export const data = [
     brand: "USRA 0-6-6",
     colors: ["yellow", "white", "black"],
     img:
-      "https://upload.wikimedia.org/wikipedia/en/thumb/a/a1/UP_4466_Neil916.JPG/600px-UP_4466_Neil916.JPG"
+      "https://d1k5w7mbrh6vq5.cloudfront.net/images/cache/3d/a3/b7/3da3b75a8d89cf423c20b525b1c454da.JPG"
   },
   {
     id: 4,
@@ -83,7 +83,7 @@ export const data = [
     id: 11,
     type: "Car",
     brand: "Lamborghini Huracán",
-    colors: ["black", "white"],
+    colors: ["Yellow", "black", "white"],
     img:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/2014-03-04_Geneva_Motor_Show_1379.JPG/440px-2014-03-04_Geneva_Motor_Show_1379.JPG"
   },

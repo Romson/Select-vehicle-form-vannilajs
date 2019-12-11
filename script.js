@@ -44,7 +44,6 @@ data.showVehicle();
 // EVENTLISTENER for vehicle TYPE
 selectVehicle.addEventListener("change", e => {
   typeChosen = e.target.value;
-
   vehicleTypeArray = vehicle.filter(vehicle => vehicle.type === typeChosen);
   const filteredBrands = vehicleTypeArray.map(vehicle => vehicle.brand);
   selectBrand.options.length = 1;
@@ -54,7 +53,6 @@ selectVehicle.addEventListener("change", e => {
 //  EVENTLISTENER for vehicle BRANDS
 selectBrand.addEventListener("change", e => {
   brandChosen = e.target.value;
-
   brandArray = vehicleTypeArray.filter(
     vehicle => vehicle.brand === brandChosen
   );

@@ -1,13 +1,17 @@
 import { data as vehicle } from "./data.js";
 
-let typeChosen, brandChosen, vehicleTypeArray, brandArray;
-const selectVehicle = document.getElementById("selectVehicle"),
-  selectVehicleBrand = document.getElementById("selectBrand"),
-  selectVehicleColor = document.getElementById("selectColor"),
-  newArr = vehicle.map(vehicle => vehicle.type),
+const newArr = vehicle.map(vehicle => vehicle.type),
   uniqueArr = newArr.filter((item, index) => {
     return newArr.indexOf(item) === index;
   });
+
+let vehicleData = {
+  typeChosen: "",
+  brandChosen: "",
+  colorChosen: "",
+  vehicleTypeArray: [],
+  brandArray: []
+};
 
 const data = {
   showVehicle() {
@@ -25,7 +29,7 @@ const data = {
       let el = document.createElement("option");
       el.textContent = opt;
       el.value = opt;
-      selectVehicleBrand.appendChild(el);
+      selectBrand.appendChild(el);
     }
   },
   showColors(arr) {
@@ -34,30 +38,42 @@ const data = {
       let el = document.createElement("option");
       el.textContent = opt;
       el.value = opt;
-      selectVehicleColor.appendChild(el);
+      selectColor.appendChild(el);
     }
+  },
+  selection() {
+    return `A ${vehicleData.colorChosen} <span class="vehicle"><strong>${vehicleData.brandChosen}</strong></span>. GREAT pick!`;
   }
 };
 
 data.showVehicle();
 
-// EVENTLISTENER for vehicle TYPE
 selectVehicle.addEventListener("change", e => {
-  typeChosen = e.target.value;
-  vehicleTypeArray = vehicle.filter(vehicle => vehicle.type === typeChosen);
-  const filteredBrands = vehicleTypeArray.map(vehicle => vehicle.brand);
+  selected.innerHTML = "";
+  vehicleData.typeChosen = e.target.value;
+  vehicleData.vehicleTypeArray = vehicle.filter(
+    vehicle => vehicle.type === vehicleData.typeChosen
+  );
+  const filteredBrands = vehicleData.vehicleTypeArray.map(
+    vehicle => vehicle.brand
+  );
   selectBrand.options.length = 1;
   data.showBrands(filteredBrands);
 });
 
-//  EVENTLISTENER for vehicle BRANDS
 selectBrand.addEventListener("change", e => {
-  brandChosen = e.target.value;
-  brandArray = vehicleTypeArray.filter(
-    vehicle => vehicle.brand === brandChosen
+  selected.innerHTML = "";
+  vehicleData.brandChosen = e.target.value;
+  vehicleData.brandArray = vehicleData.vehicleTypeArray.filter(
+    vehicle => vehicle.brand === vehicleData.brandChosen
   );
-  const filteredColors = brandArray.map(brand => brand.colors);
-  showVehicle.innerHTML = `<img src="${brandArray[0].img}" alt="" width="100%" />`;
+  const filteredColors = vehicleData.brandArray.map(brand => brand.colors);
+  showVehicle.innerHTML = `<img src="${vehicleData.brandArray[0].img}" alt="" width="100%" />`;
   selectColor.options.length = 1;
   data.showColors(filteredColors);
+});
+
+selectColor.addEventListener("change", e => {
+  vehicleData.colorChosen = e.target.value;
+  selected.innerHTML = data.selection();
 });

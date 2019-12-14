@@ -35,9 +35,14 @@ body {
   }
 }
 
-h4 {
+h4,
+.vehicle {
   text-align: center;
   color: #ed2662;
   padding-top: 30px;
   font-weight: 500;
+}
+
+h6 {
+  text-align: center;
 }

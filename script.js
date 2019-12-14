@@ -3,15 +3,14 @@ import { data as vehicle } from "./data.js";
 const newArr = vehicle.map(vehicle => vehicle.type),
   uniqueArr = newArr.filter((item, index) => {
     return newArr.indexOf(item) === index;
-  });
-
-let vehicleData = {
-  typeChosen: "",
-  brandChosen: "",
-  colorChosen: "",
-  vehicleTypeArray: [],
-  brandArray: []
-};
+  }),
+  vehicleData = {
+    typeChosen: "",
+    brandChosen: "",
+    colorChosen: "",
+    vehicleTypeArray: [],
+    brandArray: []
+  };
 
 const data = {
   showVehicle() {
